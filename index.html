@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+		<title>Test website</title>
+	</head>
+	<body>
+		<div class="terminal-top">
+			<p><i>/usr/local/bin/kitty</i><span style="float: right"><span id="time"></span></span></p>
+			<p><span style="color:var(--color-accent-soft)">/bin/bash</span><span style="color:var(--color-accent-soft); float:right;"><i>fugitivedock282</i></span></p>
+		</div>
+
+		<script>
+			function updateTime() {
+        		    const date = new Date();
+        		    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        		    const time = date.toLocaleTimeString();
+        		    const day = date.toLocaleDateString(undefined, options);
+        		    document.getElementById('time').innerHTML =
+        		        `${time}`;
+        		}
+
+        		setInterval(updateTime, 1000);
+        		updateTime();
+		</script>
+
+		<div class="terminal-bottom">
+
+		<p>~<br>$ <span style="color:var(--color-accent-dark)">echo</span> $(<span style="color:var(--color-accent-soft)">whoami</span>) | ./<span style="color:var(--color-accent-soft)">prettyprint</span></p>
+
+		<h1>Barshan Ray</h1>
+
+		<p>~<br>$ <span style="color:var(--color-accent-dark)">cat</span> ./info.txt<br>Hello world!<br>This site is under construction, and will (hopefully) get to a presentable state soon!</p>
+
+		<p>~<br>$ <span style="color:var(--color-accent-dark)"><span class="blinking-cursor">_</span></span></p>
+
+		</div>
+	</body>
+</html>

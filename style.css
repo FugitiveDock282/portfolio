@@ -1,0 +1,76 @@
+:root {
+	/* Background & Neutrals */
+	--color-background: #1C1C1C;
+	--color-text-primary: #EAEAEA;
+	--color-text-secondary: #A5A5A5;
+	--color-border: #2D2D2D;
+	
+	/* Lime-Themed Greens */
+	--color-accent-main: #A4FF00;     /* Main lime accent */
+	--color-accent-hover: #C4FF4D;    /* Lighter lime for hover states */
+	--color-accent-deep: #9BE600;     /* Slightly deeper lime */
+	--color-accent-soft: #E5FFB5;     /* Pale lime for backgrounds/fills */
+	--color-accent-dark: #6FAA00;     /* Earthy lime for borders/active */
+	
+	/* Optional Usage Mapping */
+	--color-button: var(--color-accent-main);
+	--color-button-hover: var(--color-accent-hover);
+	--color-card-bg: var(--color-accent-soft);
+	--color-link: var(--color-accent-deep);
+	
+	
+	font-family: "Inconsolata";
+	
+	margin: 1em 3em 1em 3em;
+}
+
+
+@font-face {
+	font-family: "Inconsolata";
+}
+
+body {
+	background-color: var(--color-background);
+	border-style: solid;
+	border-color: var(--color-accent-dark);
+	padding: 3em;
+}
+
+.terminal-top {
+	background-color: var(--color-border);
+	// margin-top: 0.5em;
+	// margin-bottom: 0.5em;
+	padding: 5px 15px 5px 15px;
+	//width: max-content;
+	p {
+		margin: 0px 0px 0px 0px;
+		color: var(--color-text-secondary);
+	}
+}
+
+.terminal-bottom {
+	border-style: solid;
+	border-color: var(--color-border);
+	padding: 1em 1em 1em 1em;
+}
+
+h1 {
+	color: var(--color-accent-main);
+	font-size: 34px;
+}
+
+p {
+	color: var(--color-text-primary);
+	// text-align: center;
+	font-size: 18px;
+}
+
+
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}
