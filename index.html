@@ -11,16 +11,14 @@
 	</head>
 	<body>
 		<div class="terminal-top">
-			<p><i>/usr/local/bin/kitty</i><span style="float: right"><span id="time"></span></span></p>
+			<p>/usr/local/bin/kitty<span style="float: right"><span id="time"></span></span></p>
 			<p><span style="color:var(--color-accent-soft)">/bin/bash</span><span style="color:var(--color-accent-soft); float:right;"><i>fugitivedock282</i></span></p>
 		</div>
 
 		<script>
 			function updateTime() {
         		    const date = new Date();
-        		    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         		    const time = date.toLocaleTimeString();
-        		    const day = date.toLocaleDateString(undefined, options);
         		    document.getElementById('time').innerHTML =
         		        `${time}`;
         		}
