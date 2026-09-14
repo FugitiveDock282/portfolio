@@ -439,6 +439,7 @@ a:hover {
 
 .prompt {
   color: var(--crt-accent);
+  font-size: 0.9rem;
 }
 
 .cmd {
