@@ -1,0 +1,43 @@
+---
+import type { TreeNode } from '../data/tree';
+
+interface Props {
+  nodes: TreeNode[];
+  prefix?: string;
+  depth?: number;
+}
+
+const { nodes, prefix = '', depth = 0 } = Astro.props;
+---
+
+<ul class={depth === 0 ? 'tree' : 'tree-children'}>
+  {nodes.map((node, index) => {
+    const last = index === nodes.length - 1;
+    const branch = last ? '└──' : '├──';
+    const childPrefix = prefix + (last ? '    ' : '│   ');
+
+    if (node.kind === 'file') {
+      return (
+        <li class="tree-node tree-file">
+          <button type="button" class="tree-row" data-file={node.id} data-path={node.path}>
+            <span class="tree-branch">{prefix}{branch}</span>
+            <span class="nf tree-icon" aria-hidden="true">&#xEEAB;</span>
+            <span class="tree-label">{node.label}</span>
+          </button>
+        </li>
+      );
+    }
+
+    return (
+      <li class="tree-node tree-dir open">
+        <button type="button" class="tree-row" data-dir={node.id} aria-expanded="true">
+          <span class="tree-branch">{prefix}{branch}</span>
+          <span class="nf tree-icon tree-icon-open" aria-hidden="true">&#xF07C;</span>
+          <span class="nf tree-icon tree-icon-closed" aria-hidden="true">&#xF07B;</span>
+          <span class="tree-label">{node.label}/</span>
+        </button>
+        <Astro.self nodes={node.children} prefix={childPrefix} depth={depth + 1} />
+      </li>
+    );
+  })}
+</ul>

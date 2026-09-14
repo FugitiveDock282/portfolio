@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FileView from '../components/FileView.astro';
+import About from '../components/sections/About.astro';
+import Research from '../components/sections/Research.astro';
+import MhdSimulations from '../components/sections/MhdSimulations.astro';
+import Dynamo from '../components/sections/Dynamo.astro';
+import Publications from '../components/sections/Publications.astro';
+import Employment from '../components/sections/Employment.astro';
+import Education from '../components/sections/Education.astro';
+import Experience from '../components/sections/Experience.astro';
+import Conferences from '../components/sections/Conferences.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<BaseLayout title="fug@portfolio">
+  <FileView id="about" path="about.md" title="About">
+    <About />
+  </FileView>
+
+  <FileView id="research" path="research/overview.md" title="Research">
+    <Research />
+  </FileView>
+
+  <FileView id="mhd-simulations" path="research/mhd-simulations.md" title="MHD Simulations" sim="mhd">
+    <MhdSimulations />
+  </FileView>
+
+  <FileView id="dynamo" path="research/dynamo.md" title="Hydromagnetic Dynamo" sim="dynamo">
+    <Dynamo />
+  </FileView>
+
+  <FileView id="publications" path="publications.md" title="Publications">
+    <Publications />
+  </FileView>
+
+  <FileView id="employment" path="employment.md" title="Employment">
+    <Employment />
+  </FileView>
+
+  <FileView id="education" path="education.md" title="Education">
+    <Education />
+  </FileView>
+
+  <FileView id="experience" path="experience.md" title="Experience">
+    <Experience />
+  </FileView>
+
+  <FileView id="conferences" path="conferences.md" title="Conferences">
+    <Conferences />
+  </FileView>
+
+  <FileView id="contact" path="contact.md" title="Contact">
+    <Contact />
+  </FileView>
+</BaseLayout>

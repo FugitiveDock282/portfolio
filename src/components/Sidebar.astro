@@ -1,0 +1,17 @@
+---
+import { tree } from '../data/tree';
+import { site } from '../data/site';
+import TreeBranch from './TreeBranch.astro';
+---
+
+<aside id="sidebar" class="sidebar" aria-label="File tree">
+  <div class="brand">
+    <span class="brand-name">{site.prompt}</span>
+    <span class="brand-tagline">{site.subtitle}</span>
+  </div>
+  <div class="tree-root">
+    <span class="nf" aria-hidden="true">&#xF07C;</span>
+    <span>portfolio/</span>
+  </div>
+  <TreeBranch nodes={tree} />
+</aside>

@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import Starfield from '../components/Starfield.astro';
+import CrtOverlay from '../components/CrtOverlay.astro';
+import SshLogin from '../components/SshLogin.astro';
+import WindowBar from '../components/WindowBar.astro';
+import Sidebar from '../components/Sidebar.astro';
+import StatusBar from '../components/StatusBar.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="lime">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="preload" href="/assets/fonts/inconsolata-nerd-font-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/press-start-2p-latin.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <Starfield />
+    <CrtOverlay />
+    <SshLogin />
+    <noscript>
+      <p style="padding: 2rem; font-family: monospace;">This portfolio is an interactive terminal session and needs JavaScript enabled.</p>
+    </noscript>
+    <div id="workspace" class="workspace" hidden>
+      <WindowBar />
+      <div class="shell">
+        <Sidebar />
+        <main id="terminal" class="terminal" tabindex="-1">
+          <div class="terminal-scroll">
+            <slot />
+          </div>
+        </main>
+      </div>
+      <StatusBar />
+    </div>
+    <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
+    <script>
+      import '../scripts/session.js';
+    </script>
+  </body>
+</html>

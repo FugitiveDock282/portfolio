@@ -1,0 +1,36 @@
+---
+interface Props {
+  id: string;
+  path: string;
+  title: string;
+  sim?: string;
+}
+
+const { id, path, title, sim } = Astro.props;
+---
+
+<section class="file-view" data-file={id} data-path={path} data-sim={sim} hidden>
+  <h2 class="sr-only">{title}</h2>
+  <div class="cmd-line"><span class="prompt">{'fug@portfolio:~/portfolio$ '}</span><span class="cmd"></span><span class="cursor" aria-hidden="true">▌</span></div>
+  <div class="file-reveal">
+    <div class="file-body">
+      <slot />
+    </div>
+    <div class="prompt-block">
+      <div class="prompt-history" aria-live="polite"></div>
+      <label class="prompt-line">
+        <span class="prompt">fug@portfolio:~/portfolio$</span>
+        <input
+          class="prompt-input"
+          type="text"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          enterkeyhint="go"
+          aria-label="Terminal command input"
+        />
+      </label>
+    </div>
+  </div>
+</section>

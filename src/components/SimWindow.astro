@@ -1,0 +1,19 @@
+---
+interface Props {
+  canvasId: string;
+  ariaLabel: string;
+  command: string;
+}
+
+const { canvasId, ariaLabel, command } = Astro.props;
+---
+
+<div class="sim-window">
+  <div class="sim-bar">
+    <span class="sim-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="sim-title">{command}</span><span class="sim-cursor">▌</span>
+  </div>
+  <div class="sim-body">
+    <canvas id={canvasId} class="sim-canvas" role="img" aria-label={ariaLabel}></canvas>
+  </div>
+</div>

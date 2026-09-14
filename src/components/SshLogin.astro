@@ -1,0 +1,18 @@
+---
+import asciiLogo from '../data/ascii-logo.txt?raw';
+import { site } from '../data/site';
+---
+
+<div id="login" class="login">
+  <div class="login-line">
+    <span class="login-prompt">{'$ '}</span>
+    <span id="login-cmd"></span><span id="login-cursor" class="cursor" aria-hidden="true">▌</span>
+  </div>
+  <div id="login-banner" class="login-banner" hidden>
+    <pre class="login-motd" set:html={asciiLogo}></pre>
+    <p class="login-name">{site.name}</p>
+    <p class="login-tagline">{site.subtitle}</p>
+    <p class="login-meta">Last login: Mon Sep 14 17:20:31 2026 from 192.168.1.42</p>
+    <p class="login-meta">Connected to portfolio. Browse the file tree, or run a cat command at the prompt.</p>
+  </div>
+</div>
