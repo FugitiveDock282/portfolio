@@ -1,9 +1,11 @@
 ---
 import { site } from '../data/site';
+import LofiPlayer from './LofiPlayer.astro';
 ---
 
 <div class="status-bar">
   <span class="status-item"><span class="nf" aria-hidden="true">&#xF1EB;</span> fug@portfolio</span>
   <span class="status-item status-quote">{site.footer}</span>
+  <LofiPlayer />
   <span class="status-item">{site.updated}</span>
 </div>

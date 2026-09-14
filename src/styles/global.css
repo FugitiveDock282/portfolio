@@ -611,6 +611,11 @@ a:hover {
   text-overflow: ellipsis;
 }
 
+.lofi-toggle {
+  padding: 0;
+  line-height: 1;
+}
+
 .drawer-backdrop {
   display: none;
 }
