@@ -3,7 +3,7 @@ export const site = {
   prompt: '>_ Barshan Ray',
   subtitle: 'Astrophysics · Plasmas · Magnetic fields',
   footer: 'And miles to go before I sleep...',
-  updated: 'Oct 2025',
+  updated: 'Sep 2026',
   contact: {
     email: 'barshan@mpifr-bonn.mpg.de',
     github: 'https://github.com/FugitiveDock282',
