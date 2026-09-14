@@ -611,9 +611,45 @@ a:hover {
   text-overflow: ellipsis;
 }
 
+.lofi-player {
+  gap: 0.5rem;
+}
+
 .lofi-toggle {
+  display: inline-flex;
+  align-items: center;
   padding: 0;
   line-height: 1;
+}
+
+.lofi-icon {
+  width: 0.7rem;
+  height: 0.7rem;
+  display: none;
+}
+
+.lofi-toggle[data-state='paused'] .lofi-icon-play,
+.lofi-toggle[data-state='playing'] .lofi-icon-pause,
+.lofi-toggle[data-state='buffering'] .lofi-icon-buffer {
+  display: block;
+}
+
+.lofi-toggle[data-state='buffering'] .lofi-icon-buffer {
+  animation: lofi-spin 1s linear infinite;
+}
+
+.lofi-volume {
+  width: 56px;
+  height: 0.7rem;
+  margin: 0;
+  accent-color: var(--crt-accent);
+  cursor: pointer;
+}
+
+@keyframes lofi-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .drawer-backdrop {

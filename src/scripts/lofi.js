@@ -1,22 +1,16 @@
 const button = document.getElementById('lofi-toggle');
 const audio = document.getElementById('lofi-audio');
-const icon = button?.querySelector('[data-lofi-icon]');
-
-const PLAY_ICON = '\uF04B';
-const PAUSE_ICON = '\uF04C';
-const BUFFER_ICON = '\uF254';
+const volume = document.getElementById('lofi-volume');
 
 function render(state) {
-  if (!button || !icon) return;
+  if (!button) return;
+  button.dataset.state = state;
   const playing = state === 'playing';
-  const buffering = state === 'buffering';
+  const label =
+    state === 'buffering' ? 'Buffering lofi radio' : playing ? 'Pause lofi radio' : 'Play lofi radio';
   button.setAttribute('aria-pressed', String(playing));
-  button.setAttribute(
-    'aria-label',
-    buffering ? 'Buffering lofi radio' : playing ? 'Pause lofi radio' : 'Play lofi radio'
-  );
-  button.title = button.getAttribute('aria-label') ?? '';
-  icon.textContent = buffering ? BUFFER_ICON : playing ? PAUSE_ICON : PLAY_ICON;
+  button.setAttribute('aria-label', label);
+  button.title = label;
 }
 
 if (button && audio) {
@@ -33,6 +27,13 @@ if (button && audio) {
   audio.addEventListener('pause', () => render('paused'));
   audio.addEventListener('waiting', () => render('buffering'));
   audio.addEventListener('error', () => render('paused'));
+
+  if (volume instanceof HTMLInputElement) {
+    audio.volume = Number(volume.value);
+    volume.addEventListener('input', () => {
+      audio.volume = Number(volume.value);
+    });
+  }
 
   render('paused');
 }
