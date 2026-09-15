@@ -51,6 +51,10 @@ export function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+export function isMobileDevice() {
+  return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+}
+
 export function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }

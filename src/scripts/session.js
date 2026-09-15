@@ -1,6 +1,6 @@
 import './theme.js';
 import { runLogin, loginNeeded } from './login.js';
-import { typeText, wait, prefersReducedMotion } from './lib.js';
+import { typeText, wait, prefersReducedMotion, isMobileDevice } from './lib.js';
 
 const workspace = document.getElementById('workspace');
 const login = document.getElementById('login');
@@ -45,6 +45,7 @@ function show(id) {
 }
 
 function focusPrompt(section) {
+  if (isMobileDevice()) return;
   const input = section?.querySelector('.prompt-input');
   if (input) input.focus({ preventScroll: true });
 }
