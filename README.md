@@ -1,4 +1,4 @@
-# portfolio_mobile_astro
+# portfolio
 
 A mobile-friendly astrophysics portfolio that plays as a single SSH terminal
 session: log in, browse a NeoTree-style file tree, and `cat` each section.
