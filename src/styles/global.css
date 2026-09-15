@@ -34,6 +34,8 @@
   --crt-accent: #a3e35c;
   --crt-footer: #8ed94f;
   --crt-link: #d4ff87;
+  --crt-strong: #f2ffd2;
+  --crt-em: #6fe3c0;
   --crt-glow: rgba(168, 255, 96, 0.14);
   --surface: #0d0d0d;
   --surface-deep: #050505;
@@ -51,6 +53,8 @@
   --crt-accent: #ffd166;
   --crt-footer: #e8b84d;
   --crt-link: #ffe3a3;
+  --crt-strong: #fff2d0;
+  --crt-em: #ffab5e;
   --crt-glow: rgba(255, 201, 77, 0.14);
   --line: rgba(255, 201, 77, 0.35);
   --error: #ff5f56;
@@ -519,8 +523,15 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
-.file-body strong {
+.file-body strong,
+.file-body b {
   font-weight: 700;
+  color: var(--crt-strong);
+}
+
+.file-body em,
+.file-body i {
+  color: var(--crt-em);
 }
 
 .pixel-art {
